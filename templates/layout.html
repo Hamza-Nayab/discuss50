@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+
+        <!-- https://favicon.io/emoji-favicons/money-bag/ -->
+        <link href="/static/discuss.png" rel="icon">
+
+        <link href="/static/styles.css" rel="stylesheet">
+
+        <title>Discuss50: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+
+        <nav class="bg-light border navbar navbar-expand-md navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><span class="red">Discuss</span><span>:</span><span class="text-primary">50</span></a>
+                <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbar" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    {% if session["user_id"] %}
+                        <ul class="navbar-nav me-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/week0">Week-0</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week1">Week-1</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week2">Week-2</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week3">Week-3</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week4">Week-4</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week5">Week-5</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week6">Week-6</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week7">Week-7</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week8">Week-8</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/week9">Week-9</a></li>
+
+                        </ul>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/reset">Reset Password</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+
+                        </ul>
+                    {% else %}
+                        <ul class="navbar-nav ms-auto mt-2">
+                            <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/login">Log In</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary mb-0 text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
+
+        <main class="container-fluid py-5 text-center">
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer class="mb-5 small text-center text-muted">
+            Website was developed by <a href="https://www.linkedin.com/in/hamza-nayab-3a7b821b1/?originalSubdomain=pk">Hamza Nayab</a>
+        </footer>
+
+    </body>
+
+</html>

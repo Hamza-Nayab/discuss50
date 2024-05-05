@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Response
+{% endblock %}
+
+{% block main %}
+    <div class="text-success">
+        <h4>Things you can Discuss/Do</h4>
+        <ul style="list-style: none;">
+            <li>Your Unique Approach</li>
+            <li>Difficulty of Problem-set</li>
+            <li>Resources that you used</li>
+            <li>All the things that follow academic Honesty Policy</li>
+        </ul>
+    </div>
+    <div class="text-danger">
+        <h4>Things you Shouldn't Discuss/Do</h4>
+        <ul style="list-style: none;">
+            <li>Uploading your Source Code</li>
+            <li>Use Inappropriate Language</li>
+            <li>Spamming</li>
+            <li>All the things that follow don't academic Honesty Policy</li>
+        </ul>
+    </div>
+    <form action="/response" method="POST">
+        <h5>Week 0 to 9</h5>
+        <select class="form-select mx-auto w-auto mb-3" name="week">
+            <option disabled selected>Select</option>
+            {% for i in range(10) %}
+            <option value ={{i}}>{{i}}</option>
+            {% endfor %}
+        </select>
+
+        <h5>Difficulty from 1 to 10</h5>
+        <input autocomplete="off" autofocus autofocus class="form-control mx-auto w-auto" id="diff" min="1" clos="20" max="10" name="diff" placeholder="1-10" type="Number">
+
+        <h5>Response</h5>
+        <textarea autofocus autocomplete="off" class="form-control mx-auto w-auto" name="text" cols="80" rows="10"></textarea>
+        <button class="btn btn-primary">Add Response</button>
+    </form>
+{% endblock %}
