@@ -1,6 +1,6 @@
 # CS50 Programming Bootcamp Project
 
-# discuss50
+# Discuss50
 
 
 ## Introduction
